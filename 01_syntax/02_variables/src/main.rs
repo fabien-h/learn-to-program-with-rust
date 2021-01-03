@@ -76,4 +76,13 @@ fn main() {
 
     // Assign a value to an empty address
     let _ = 10;
+
+    // Reassign after update
+    let mut value_to_add: u8 = 10;
+    value_to_add = value_to_add + 10;
+    value_to_add += 10;
+    value_to_add *= 2;
+    value_to_add -= 1;
+    value_to_add /= 2;
+    println!("value_to_add: {}", value_to_add);
 }
