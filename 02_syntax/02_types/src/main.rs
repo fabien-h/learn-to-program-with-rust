@@ -47,6 +47,7 @@ fn main() {
 
     let _untyped_integer = 10; // typed as an i32
     let _untyped_decimal = 10.1; // typed as an f64
+    println!("MAX u32 : {}", u32::MAX); // 1024
 
     // Operations on numbers
     let _my_result: u32 = 1 + 1;
@@ -84,8 +85,19 @@ fn main() {
     let _my_number: u32 = my_char as u32; // 9
 
     // number to char
-    let my_number: u32 = 100;
-    let _may_char = char::from_u32(my_number).unwrap(); // d
+    let _may_char = char::from_u32(100u32).unwrap(); // d
+    let _may_char = 100u8 as char; // d
+
+    // number to string
+    let _my_string: String = 10f64.to_string();
+    let _my_number: f64 = "1234.5".parse().unwrap();
+
+    // String from number
+    let _my_string: String = 10f64.to_string(); // d
+
+    // Number from string
+    let _my_number: f64 = "1234.5".parse().unwrap(); // 1234.5
+    let _my_number: u64 = u64::from_str_radix("A", 16).unwrap(); // 10
 
     // /////////////////////////////////////
     // Floats are weird
@@ -95,7 +107,9 @@ fn main() {
     let no_zero_three: f64 = zero_one + zero_two;
     println!("no_zero_three {}", no_zero_three); // no_zero_three 0.30000000000000004
 
+    // /////////////////////////////////////
     // Tuples
+    // /////////////////////////////////////
     let my_tuple: (bool, usize, char) = (false, 123, 'a');
     println!(
         "bool: {}; usize: {}; char: {}",
@@ -105,7 +119,9 @@ fn main() {
     let (_, my_usize, my_char): (bool, usize, char) = my_tuple;
     println!("usize: {}; char: {}", my_usize, my_char);
 
+    // /////////////////////////////////////
     // Arrays
+    // /////////////////////////////////////
     let my_array: [u8; 3] = [1, 2, 3];
     println!("my_array at 0: {}", my_array[0]); // 1
     println!("my_array length is: {}", my_array.len()); // 3
@@ -127,9 +143,56 @@ fn main() {
     for value in &my_array {
         println!("value: {}", value);
     } // value: 1 value: 2 value: 3
+    println!("array length: {}", [1, 2, 3].len()); // 3
 
+    // /////////////////////////////////////
     // Vectors
+    // /////////////////////////////////////
     let mut my_vector: Vec<u8> = Vec::new();
+    println!("my_vector len: {}", my_vector.len());
+    println!("my_vector capacity: {}", my_vector.capacity());
     my_vector.push(1);
+    println!("my_vector len: {}", my_vector.len());
+    println!("my_vector capacity: {}", my_vector.capacity());
+    my_vector.push(2);
     println!("my_vector at 0: {}", my_vector[0]);
+    let mut my_vector: Vec<u8> = vec![1, 2, 3, 4, 5];
+    println!("my_vector len: {}", my_vector.len());
+    println!("my_vector capacity: {}", my_vector.capacity());
+    let mut _my_vector_with_capacity: Vec<u8> = Vec::with_capacity(1337usize);
+    my_vector.pop();
+    println!("my_vector full: {:?}", my_vector); // [1, 2, 3, 4]
+    let _my_vector_contains_5: bool = my_vector.contains(&5u8);
+    // iteration
+    for value in my_vector {
+        println!("my_vector value: {}", value);
+    }
+    let mut my_vector: Vec<u8> = vec![1, 2, 3, 4, 5, 6];
+    my_vector.retain(|value| *value % 2 == 0);
+    println!("pairs only: {:?}", my_vector); // [2, 4, 6]
+    let mut my_vector: Vec<u8> = vec![1, 2, 3, 4, 5];
+    my_vector.remove(1);
+    println!("my_vector without [1] removec: {:?}", my_vector); // [1, 3, 4, 5]
+    let mut my_vector: Vec<u8> = vec![1, 2, 3, 4, 5];
+    my_vector.swap_remove(1);
+    println!("my_vector without [1] swapped: {:?}", my_vector); // [1, 5, 3, 4]
+                                                                // Create a new vector with a target capacity
+    let mut _my_vector: Vec<u8> = Vec::with_capacity(1337usize);
+    // Dedup keys
+    let mut my_vector: Vec<u8> = vec![1, 1, 2, 2, 3, 3, 4, 4, 4, 4];
+    my_vector.dedup(); // [1, 2, 3, 4]
+
+    // The vector [1,2,3,4,5] in memory
+    // 00000001
+    // 00000010
+    // 00000011
+    // 00000100
+    // 00000101
+
+    // /////////////////////////////////////
+    // Slices
+    // /////////////////////////////////////
+    let my_array: [u8; 5] = [1, 2, 3, 4, 5];
+    let my_slice: &[u8] = &my_array[0..2];
+    println!("my_slice: {:?}", my_slice);
 }
