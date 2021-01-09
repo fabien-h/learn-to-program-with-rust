@@ -43,6 +43,11 @@ fn main() {
     }
 
     // /////////////////////////////////////
+    // Assigning if
+    // /////////////////////////////////////
+    let _should_ring: bool = if is_weekday { true } else { false };
+
+    // /////////////////////////////////////
     // Simple match
     // /////////////////////////////////////
     let current_day: &str = "monday";
@@ -78,6 +83,26 @@ fn main() {
         (123, _) => alarm_ring(),
         _ => {}
     }
+
+    // /////////////////////////////////////
+    // Assigning match
+    // /////////////////////////////////////
+    let _should_ring: bool = match is_weekday {
+        true => true,
+        false => false,
+    };
+
+    // /////////////////////////////////////
+    // Error handling match
+    // /////////////////////////////////////
+    let mut my_vector: Vec<u8> = vec![1, 2, 3, 4, 5];
+    let _my_number: u8 = match my_vector.pop() {
+        Some(number) => number,
+        None => {
+            println!("Error: my_vector is empty");
+            0
+        }
+    };
 
     // /////////////////////////////////////
     // Basic loop with a break
