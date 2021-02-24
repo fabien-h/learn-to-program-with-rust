@@ -195,4 +195,14 @@ fn main() {
     let my_array: [u8; 5] = [1, 2, 3, 4, 5];
     let my_slice: &[u8] = &my_array[0..2];
     println!("my_slice: {:?}", my_slice);
+    let my_slice: &[u8] = &my_array[..3];
+    println!("my_slice: {:?}", my_slice);
+    let my_slice: &[u8] = &my_array[2..];
+    println!("my_slice: {:?}", my_slice);
+    // let my_slice: &[u8] = &my_array[..30];
+    // error : thread 'main' panicked at 'range end index 30 out of range for slice of length 5',
+    let my_vector: Vec<u8> = vec![1u8, 2u8, 3u8, 4u8, 5u8];
+    println!("my_slice: {:?}", &my_vector[..2]);
+    let my_string: String = String::from("12345");
+    println!("my_slice: {:?}", &my_string[..2]);
 }
