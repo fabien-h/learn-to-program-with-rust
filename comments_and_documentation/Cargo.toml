@@ -1,5 +1,5 @@
 [package]
-name = "hello_world"
+name = "comments_and_documentation"
 version = "0.1.0"
 authors = ["fabien-h <fabien.huet@gmail.com>"]
 edition = "2018"

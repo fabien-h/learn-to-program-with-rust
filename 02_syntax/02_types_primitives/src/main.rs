@@ -22,7 +22,12 @@ fn main() {
     // /////////////////////////////////////
     // Characters are simple
     // /////////////////////////////////////
-    let _my_char: char = 'a';
+    let my_char: char = 'a';
+    println!("{}", my_char);
+    let my_char: char = '\u{0061}';
+    println!("{}", my_char);
+    let my_char: char = '\u{1F60A}';
+    println!("{}", my_char);
 
     // /////////////////////////////////////
     // Numbers
@@ -205,4 +210,25 @@ fn main() {
     println!("my_slice: {:?}", &my_vector[..2]);
     let my_string: String = String::from("12345");
     println!("my_slice: {:?}", &my_string[..2]);
+
+    // /////////////////////////////////////
+    // Strings
+    // /////////////////////////////////////
+    let my_string: &str = "Hello world";
+    println!("my_string: {}", my_string);
+    let my_string: String = String::from("hello world");
+    println!("my_string: {}", my_string);
+    let my_string = String::new();
+    println!("my_string: {}", my_string);
+    let my_string: &str = "Hello world";
+    println!("my_string length: {}", my_string.len());
+    let mut my_string: String = String::from("String");
+    my_string.push(':');
+    println!("my_string : {}", my_string);
+    my_string.push_str(": longer");
+    println!("my_string : {}", my_string);
+    let my_string: String = String::from("Hello world!");
+    let my_string_replaced: String = my_string.replace("world", "you");
+    println!("my_string2 : {}", my_string_replaced);
+
 }

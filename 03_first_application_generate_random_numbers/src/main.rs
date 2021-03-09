@@ -3,7 +3,7 @@ use std::io;
 use std::io::Read;
 use std::time::Instant;
 
-fn main() -> void {
+fn main() -> () {
     println!("Type a sentence and press enter:");
     io::stdout().flush().unwrap();
 

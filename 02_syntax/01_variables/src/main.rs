@@ -85,4 +85,19 @@ fn main() {
     value_to_add -= 1;
     value_to_add /= 2;
     println!("value_to_add: {}", value_to_add);
+
+    // const
+    const MY_NUMBER: i32 = 1337i32;
+    let _my_number: i32 = 42i32;
+    fn add(number: i32) -> i32 {
+        return MY_NUMBER + number;
+        // return _my_number + number;
+    }
+    println!("result: {}", add(10i32));
+    const MY_STRING: &str = "Hello";
+    println!("MY_STRING: {}", MY_STRING);
+
+    // Life cycle
+    let my_number: &'static u8 = &10u8;
+    println!("static number: {}", my_number);
 }
